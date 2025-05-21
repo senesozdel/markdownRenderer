@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
+  --foreground: #000000;
   --background: #ffffff;
-  --foreground: #171717;
+  --editor-bg: #ffffff;
+  --preview-bg: #ffffff;
+  --header-bg: #ffffff;
+  --border-color: #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  --foreground: #ffffff;
+  --background: #111827;
+  --editor-bg: #1f2937;
+  --preview-bg: #1f2937;
+  --header-bg: #111827;
+  --border-color: #374151;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+}
+
+/* Editor ve Preview için stil değişiklikleri */
+.editor-container {
+  background-color: var(--editor-bg);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border-color);
+}
+
+.preview-container {
+  background-color: var(--preview-bg);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border-color);
+}
+
+.header {
+  background-color: var(--header-bg);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--border-color);
+}
+
+
+
+/* Theme toggle button style */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

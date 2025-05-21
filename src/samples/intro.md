@@ -8,4 +8,4 @@ This sample demonstrates:
 - [Links](https://example.com)
 - Bullet lists
 
-> “Markdown loves you.”
+> "Markdown loves you."

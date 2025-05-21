@@ -9,3 +9,4 @@ Example dynamic import snippet:
 ```tsx
 const { unified } = await import('unified');
 const remarkParse = await import('remark-parse');
+```
