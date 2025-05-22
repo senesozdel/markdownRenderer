@@ -8,32 +8,34 @@ import ThemeToggle from '../components/ThemeToggle';
 import { useDocuments } from '../hooks/useIndexedDB';
 
 export default function Home() {
-  const { currentDocument, saveDocument } = useDocuments();
+  const { currentDocument, saveDocument, isLoading } = useDocuments();
   const [markdown, setMarkdown] = useState('');
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   // Load initial content from IndexedDB
   useEffect(() => {
-    if (currentDocument) {
-      setMarkdown(currentDocument);
-      setInitialLoadComplete(true);
-    } else {
-      // If no document is saved, load the intro sample
-      const loadIntroSample = async () => {
-        try {
-          const sampleContent = await fetch('/api/samples/intro.md').then(res => res.text());
-          setMarkdown(sampleContent);
-          setInitialLoadComplete(true);
-        } catch (error) {
-          console.error('Failed to load intro sample:', error);
-          setMarkdown('# Welcome to the Markdown Playground\n\nStart typing to see the preview.');
-          setInitialLoadComplete(true);
-        }
-      };
+    if (!isLoading) { 
+      if (currentDocument) {
+        setMarkdown(currentDocument);
+        setInitialLoadComplete(true);
+      } else {
+        // If no document is saved, load the intro sample
+        const loadIntroSample = async () => {
+          try {
+            const sampleContent = await fetch('/api/samples/intro.md').then(res => res.text());
+            setMarkdown(sampleContent);
+            setInitialLoadComplete(true);
+          } catch (error) {
+            console.error('Failed to load intro sample:', error);
+            setMarkdown('# Welcome to the Markdown Playground\n\nStart typing to see the preview.');
+            setInitialLoadComplete(true);
+          }
+        };
       
-      loadIntroSample();
+        loadIntroSample();
+      }
     }
-  }, [currentDocument]);
+  }, [currentDocument, isLoading]);
 
   // Handle markdown content changes
   const handleMarkdownChange = useCallback((content: string) => {
@@ -59,7 +61,7 @@ export default function Home() {
     <div className="min-h-screen bg-[color:var(--background)] transition-colors duration-200">
       <header className="header p-4 shadow-sm">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">Markdown Playground</h1>
+          <h1 className="text-xl font-bold">Mark🔻down | HTML🔺up</h1>
           <div className="flex items-center space-x-4">
             <SampleSelector onSelectSample={handleSelectSample} />
             <ThemeToggle />

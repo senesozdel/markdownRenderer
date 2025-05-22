@@ -70,10 +70,12 @@ export function useSettings() {
 
 export function useDocuments() {
   const [currentDocument, setCurrentDocument] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
   
   // Load the last edited document from IndexedDB
   useEffect(() => {
     async function loadLastDocument() {
+      setIsLoading(true); 
       try {
         const lastDoc = await db.documents.get('lastEdited');
         if (lastDoc) {
@@ -81,6 +83,8 @@ export function useDocuments() {
         }
       } catch (error) {
         console.error('Failed to load document from IndexedDB:', error);
+      } finally {
+        setIsLoading(false);
       }
     }
     
@@ -97,5 +101,5 @@ export function useDocuments() {
     }
   }, []);
   
-  return { currentDocument, saveDocument };
+  return { currentDocument, saveDocument, isLoading };
 }

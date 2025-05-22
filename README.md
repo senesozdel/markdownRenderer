@@ -30,6 +30,18 @@ This is a **client‑only**, single‑page application where users write Markdow
    - It sanitizes rendered HTML (e.g., `rehype-sanitize`).  
 
 5. **IndexedDB Persistence**
-   - Custom hook for saving/loading settings & documents.  
+   - Custom hook for saving/loading settings & documents. 
+   - The last document worked on is saved instantly. Thus, the user can access the last document even if he refreshes the page. (It is constantly saving the last file to the DB.)
+
+
+##  How to Run
+1. **Clone the repo**
+   -git clone repoAdress
+2. **Install dependencies**
+   -npm install or yarn install
+3. **Run the app** 
+   -check the package.json file for the command to run the app
+   -yarn next dev or npm run dev
+
 
 

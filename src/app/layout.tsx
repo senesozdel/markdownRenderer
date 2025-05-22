@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Markdown Playground",
-  description: "A client-side Markdown editor with live preview",
+  title: "MD to HTML",
+  description: "Markdown editor with live preview",
 };
 
 export default function RootLayout({
