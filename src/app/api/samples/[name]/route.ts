@@ -13,6 +13,7 @@ export async function GET(
     const content = await readFile(filePath, 'utf-8');
     return new NextResponse(content);
   } catch (error) {
+    console.error('Error reading file:', error);
     return new NextResponse('Sample not found', { status: 404 });
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSettings } from '../hooks/useIndexedDB';
 
 const ThemeToggle: React.FC = () => {

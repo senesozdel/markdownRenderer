@@ -2,9 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTheme as useNextTheme } from 'next-themes';
 import Dexie from 'dexie';
 
+type SettingValue = 'light' | 'dark' ;
 // database schema
 class MarkdownPlaygroundDB extends Dexie {
-  settings!: Dexie.Table<{ key: string, value: any }, string>;
+  settings!: Dexie.Table<{ key: string, value: SettingValue}, string>;
   documents!: Dexie.Table<{ id: string, content: string }, string>;
 
   constructor() {
