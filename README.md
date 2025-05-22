@@ -43,5 +43,16 @@ This is a **client‑only**, single‑page application where users write Markdow
    -check the package.json file for the command to run the app
    -yarn next dev or npm run dev
 
+## ScreenShots
+
+1. **Dark Theme**
+   - ![image](https://github.com/user-attachments/assets/88812927-1519-44f0-adb2-5c8445b1d8e6)
+
+2. **HTML Codes on Console**
+   - ![image](https://github.com/user-attachments/assets/9b52c38f-5207-413c-9ced-4f9226d68197)
+
+3. **Light Theme**
+   - ![image](https://github.com/user-attachments/assets/cc22d316-7ff5-429d-b15b-e08d26b295a5)
+
 
 
